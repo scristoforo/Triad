@@ -38,16 +38,18 @@ const questions = [
   { q: "Do you track politics, culture, and current events thoughtfully?", a: "noble" }
 ];
 
+// Shuffle questions
 const shuffled = [...questions].sort(() => Math.random() - 0.5);
 
+// Render each question and its answer options
 shuffled.forEach((item, index) => {
   const qBlock = document.createElement("div");
   qBlock.className = "question";
   qBlock.innerHTML = `
     <p><strong>Q${index + 1}.</strong> ${item.q}</p>
-    <label><input type="radio" name="q${index}" value="2" required> A</label>
-    <label><input type="radio" name="q${index}" value="1"> B</label>
-    <label><input type="radio" name="q${index}" value="0"> C</label>
+    <label><input type="radio" name="q${index}" value="2" required> A. I strongly align with this</label>
+    <label><input type="radio" name="q${index}" value="1"> B. I somewhat align with this</label>
+    <label><input type="radio" name="q${index}" value="0"> C. I rarely or do not align with this</label>
   `;
   quizForm.appendChild(qBlock);
 });
